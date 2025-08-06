@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aclonica&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+    <title>Note-App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .font-Aclonica {
+        font-family: "Aclonica", sans-serif;
+      }
+
+      .font-plus {
+        font-family: "Plus Jakarta Sans", sans-serif;
+      }
+
+      .font-inter {
+        font-family: "Inter", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 font-inter">
+    <header
+      class="sm:hidden shadow sticky top-0 z-10 flex flex-col w-full bg-white transition-all duration-500"
+    >
+      <div class="flex w-full p-6 justify-between">
+        <svg
+          id="menuIcon"
+          class="cursor-pointer transition-transform duration-500"
+          width="22"
+          height="17"
+          viewBox="0 0 22 17"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20.3711 2.87494L1.63048 2.87494C1.28564 2.87494 1.00582 2.45491 1.00584 1.93747C1.00587 1.41995 1.28577 1 1.63056 1L20.3712 1C20.716 1 20.9958 1.42003 20.9958 1.93747C20.9958 2.45491 20.7159 2.87494 20.3711 2.87494Z"
+            fill="#303030"
+            stroke="white"
+            stroke-width="0.2"
+          />
+          <path
+            d="M1.63056 7.5625L20.3712 7.5625C20.716 7.5625 20.9958 7.98253 20.9958 8.49997C20.9958 9.0174 20.7159 9.43743 20.3711 9.43743L1.63048 9.43743C1.28564 9.43743 1.00583 9.0174 1.00585 8.49997C1.00587 7.98253 1.28572 7.5625 1.63056 7.5625Z"
+            fill="#303030"
+            stroke="white"
+            stroke-width="0.2"
+          />
+          <path
+            d="M1.63081 14.125L14.1244 14.125C14.4692 14.125 14.7489 14.545 14.7487 15.0625C14.7485 15.58 14.4685 15.9999 14.1237 15.9999L1.63011 15.9999C1.28528 15.9999 1.00561 15.5799 1.0058 15.0625C1.00594 14.545 1.28597 14.125 1.63081 14.125Z"
+            fill="#303030"
+            stroke="white"
+            stroke-width="0.2"
+          />
+        </svg>
+
+        <h1 class="text-[20px] font-bold font-Aclonica text-[#EC7160]">
+          Note-App
+        </h1>
+        <svg
+          id="searchIcon"
+          class="cursor-pointer"
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g clip-path="url(#clip0_357_13)">
+            <path
+              d="M9.06226 15.625C12.6866 15.625 15.6248 12.6869 15.6248 9.0625C15.6248 5.43813 12.6866 2.5 9.06226 2.5C5.43789 2.5 2.49976 5.43813 2.49976 9.0625C2.49976 12.6869 5.43789 15.625 9.06226 15.625Z"
+              stroke="#303030"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M13.7024 13.7031L17.4993 17.5"
+              stroke="#303030"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </g>
+          <defs>
+            <clipPath id="clip0_357_13">
+              <rect width="20" height="20" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+        <svg
+          id="closeSearchIcon"
+          class="hidden cursor-pointer"
+          width="18"
+          height="18"
+          viewBox="0 0 18 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M1 1.24459L17 17M1 16.7554L17 1"
+            stroke="#303030"
+            stroke-width="1.5"
+          />
+        </svg>
+      </div>
+      <div>
+        <div id="mobileSearchBar" class="mt-4 relative mb-5 mx-6 hidden">
+          <input
+            name="searchBar"
+            type="text"
+            placeholder="Search"
+            class="searchBar w-full pl-10 pr-4 py-2 border rounded-[7px] focus:outline-none focus:ring-2 focus:ring-gray-500"
+          />
+          <svg
+            class="w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-gray-400"
+            width="18"
+            height="19"
+            viewBox="0 0 18 19"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clip-path="url(#clip0_260_701)">
+              <path
+                d="M8.15625 14.1186C11.4182 14.1186 14.0625 11.4732 14.0625 8.20993C14.0625 4.94667 11.4182 2.30127 8.15625 2.30127C4.89432 2.30127 2.25 4.94667 2.25 8.20993C2.25 11.4732 4.89432 14.1186 8.15625 14.1186Z"
+                stroke="#898989"
+                stroke-width="1.125"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M12.332 12.3882L15.7493 15.8068"
+                stroke="#898989"
+                stroke-width="1.125"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_260_701">
+                <rect
+                  width="18"
+                  height="18.0073"
+                  fill="white"
+                  transform="translate(0 0.050293)"
+                />
+              </clipPath>
+            </defs>
+          </svg>
+        </div>
+      </div>
+    </header>
+    <div class="flex h-screen overflow-hidden bg-white">
+      <nav
+        id="navbar"
+        class="transition-all duration-500 ease-in-out flex-shrink-0 w-[258px] border-r bg-[#F6F6F6] border-gray-200 flex flex-col px-5 py-7 gap-5 max-sm:hidden max-sm:translate-x-[-100%]"
+      >
+        <svg
+          id="closeNav"
+          class="mb-10 sm:hidden cursor-pointer transition-all duration-500 ease-in-out"
+          width="18"
+          height="18"
+          viewBox="0 0 18 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M1 1.24459L17 17M1 16.7554L17 1"
+            stroke="#303030"
+            stroke-width="1.5"
+          />
+        </svg>
+
+        <h1
+          class="text-[20px] font-bold font-Aclonica text-[#EC7160] max-sm:hidden"
+        >
+          Note-App
+        </h1>
+        <div class="mt-4 relative mb-5 max-sm:hidden">
+          <input
+            id="pcSearchBar"
+            name="searchBar"
+            type="text"
+            placeholder="Search"
+            class="searchBar w-full pl-10 pr-4 py-2 border rounded-[7px] focus:outline-none focus:ring-2 focus:ring-gray-500"
+          />
+          <svg
+            class="w-5 h-5 absolute top-1/2 -translate-y-1/2 left-3 text-gray-400"
+            width="18"
+            height="19"
+            viewBox="0 0 18 19"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clip-path="url(#clip0_260_701)">
+              <path
+                d="M8.15625 14.1186C11.4182 14.1186 14.0625 11.4732 14.0625 8.20993C14.0625 4.94667 11.4182 2.30127 8.15625 2.30127C4.89432 2.30127 2.25 4.94667 2.25 8.20993C2.25 11.4732 4.89432 14.1186 8.15625 14.1186Z"
+                stroke="#898989"
+                stroke-width="1.125"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M12.332 12.3882L15.7493 15.8068"
+                stroke="#898989"
+                stroke-width="1.125"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_260_701">
+                <rect
+                  width="18"
+                  height="18.0073"
+                  fill="white"
+                  transform="translate(0 0.050293)"
+                />
+              </clipPath>
+            </defs>
+          </svg>
+        </div>
+        <ul class="flex flex-col gap-4">
+          <li
+            class="focus-within:border-l-4 focus-within:border-[#EC7160] pl-2 text-[#898989] focus-within:text-black text-[16px]"
+          >
+            <button id="notesPage" class="w-full text-start">Notes</button>
+          </li>
+          <li
+            class="focus-within:border-l-4 focus-within:border-[#EC7160] pl-2 text-[#898989] focus-within:text-black text-[16px]"
+          >
+            <button id="addNotesPage" class="w-full text-start">
+              Add Notes
+            </button>
+          </li>
+        </ul>
+      </nav>
+      <div class="relative">
+        <div
+          id="ToggleSidebarBtn"
+          class="absolute right-[-14px] top-[10rem] z-10 cursor-pointer transition-all transform duration-500 max-sm:hidden"
+        >
+          <svg
+            width="28"
+            height="29"
+            viewBox="0 0 28 29"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="14"
+              cy="14.1697"
+              r="13.5"
+              fill="white"
+              stroke="#E7E7E9"
+            />
+            <path
+              d="M16.5515 15.828C16.5985 15.8531 16.625 15.8872 16.625 15.9228C16.625 15.9584 16.5985 15.9925 16.5515 16.0176L16.0247 16.3006C15.9796 16.3264 15.9166 16.3411 15.8507 16.3411C15.7848 16.3411 15.7219 16.3264 15.6768 16.3006L11.1093 13.8468C11.0394 13.8093 11.0001 13.7584 11 13.7053L11 13.6359C11.0001 13.5828 11.0394 13.5319 11.1093 13.4944L15.6768 11.0406C15.7219 11.0148 15.7848 11.0001 15.8507 11.0001C15.9166 11.0001 15.9796 11.0148 16.0247 11.0406L16.5515 11.3236C16.5985 11.3487 16.625 11.3828 16.625 11.4184C16.625 11.454 16.5985 11.4881 16.5515 11.5132L12.5357 13.6706L16.5515 15.828Z"
+              fill="#898989"
+            />
+          </svg>
+        </div>
+
+        <aside
+          id="asideNoteList"
+          class="overflow-scroll w-[340px] h-full max-sm:w-screen flex-shrink-0 bg-white border-r border-[#E7E7E9] py-5 transition-transform transform duration-500"
+        >
+          <div class="p-5">
+            <h3
+              class="text-[13px] text-[#EC7160] font-[400] leading-[27px] mb-4"
+            >
+              PINNED
+            </h3>
+            <ul
+              id="pinnedNotesList"
+              class="flex flex-col gap-8 first-child:active"
+            ></ul>
+          </div>
+          <div class="px-5">
+            <h3
+              id="noteInAside"
+              class="text-[13px] text-[#EC7160] font-[400] leading-[27px] mb-4 border-t border-b border-[#E7E7E9] py-2"
+            >
+              Notes
+            </h3>
+            <ul id="unPinnedNotesList" class="flex flex-col gap-8"></ul>
+          </div>
+        </aside>
+      </div>
+
+      <main id="notePaneContainer" class="bg-white h-full w-full max-sm:hidden">
+        <div id="notePane"></div>
+        <div class="flex justify-end m-10">
+          <button
+            id="CircularBtn"
+            class="bg-[#EC7160] hover:bg-red-600 text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center"
+          >
+            <svg
+              class="w-10 h-10"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </main>
+      <div
+        id="addNote"
+        class="flex h-full w-full justify-center items-start mt-20 hidden"
+      >
+        <form
+          id="myForm"
+          class="flex flex-col gap-8 w-[500px] max-sm:w-[250px]"
+        >
+          <h2 class="text-[26px] font-[400]">Add Note</h2>
+          <div class="flex flex-col">
+            <label for="title" class="text-[13px] text-[#898989] mb-2"
+              >Title*</label
+            >
+            <input
+              required
+              type="text"
+              name="title"
+              id="title"
+              class="bg-[#F6F6F6] rounded-[7px] focus:outline-none p-2"
+            />
+          </div>
+          <div class="flex flex-col">
+            <label for="author" class="text-[13px] text-[#898989] mb-2"
+              >Author*</label
+            >
+            <input
+              required
+              type="text"
+              name="author"
+              id="author"
+              class="bg-[#F6F6F6] rounded-[7px] focus:outline-none p-2"
+            />
+          </div>
+          <div class="flex flex-col">
+            <label for="youNote" class="text-[13px] text-[#898989] mb-2"
+              >Your Note**</label
+            >
+            <textarea
+              required
+              name="youNote"
+              id="youNote"
+              class="bg-[#F6F6F6] rounded-[7px] resize-none focus:outline-none p-2 h-[150px]"
+            ></textarea>
+          </div>
+          <div class="flex flec-col justify-start gap-8">
+            <button
+              id="AddNoteBtn"
+              type="submit"
+              class="font-[400] text-[13px] text-white p-4 rounded-[7px] bg-[#EC7160] hover:bg-red-600 w-[104px]"
+            >
+              Add Note
+            </button>
+            <button
+              id="AddPinNoteBtn"
+              type="submit"
+              class="font-[400] text-[13px] text-white p-4 rounded-[7px] bg-[#EC7160] hover:bg-red-600 w-[138px]"
+            >
+              Add pinned note
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>
