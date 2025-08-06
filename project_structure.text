@@ -1,0 +1,30 @@
+- .gitignore
+- dist
+  - assets
+    - index-CQIQs9Fu.js
+  - index.html
+  - logo.svg
+- index.html
+- package-lock.json
+- package.json
+- public
+  - logo.svg
+- screenshot
+  - Screenshot_20250806_221459.png
+  - Screenshot_20250806_221554.png
+  - Screenshot_20250806_221622.png
+  - Screenshot_20250806_221659.png
+  - Screenshot_20250806_221743.png
+  - Screenshot_20250806_221803.png
+- src
+  - addNote.js
+  - deleteNoteFn.js
+  - getDate.js
+  - isContainsArabic.js
+  - localStorageManagement.js
+  - main.js
+  - pinNote.js
+  - renderNoteList.js
+  - renderNotePane.js
+  - searchBar.js
+- vite.config.js
